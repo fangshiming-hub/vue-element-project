@@ -2,7 +2,7 @@
   <el-container style="height: 100vh; border: 1px solid #eee">
     <el-header class="header">
       <div>{{ $t('layout.title') }}</div>
-      <el-select v-model="language" placeholder="请选择" style="width:150px" @change="selectLanguage">
+      <el-select v-model="language" placeholder="请选择" style="width:120px" @change="selectLanguage">
         <el-option
           v-for="item in options"
           :key="item.value"
@@ -18,7 +18,7 @@
           <el-submenu index="1">
             <template slot="title"><i class="el-icon-message"></i>CSS</template>
             <el-menu-item-group>
-              <el-menu-item index="/app/cssAnimal">CSS动画</el-menu-item>
+              <el-menu-item index="/app/cssAnimal">{{ $t('menu.cssAnimation') }}</el-menu-item>
               <el-menu-item index="/app/about">unknow</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
@@ -61,12 +61,22 @@ export default {
           label: '英语'
         }
       ], 
-      language: 'zh'
+      language: this.$store.getters.language
     }
   },
+  // computed: {
+  //   language(){
+  //     return this.$store.getters.language
+  //   }
+  // },
   methods: {
     selectLanguage(lang){
       this.$i18n.locale = lang;
+      this.$store.dispatch('app/setLanguage', lang);
+      this.$message({
+        message: this.$t("msg.lang"),
+        type: 'success'
+      })
     }
   }
 };
