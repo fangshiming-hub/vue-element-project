@@ -16,10 +16,15 @@
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
         <el-menu :default-openeds="['1', '3']" :router="true">
           <el-submenu index="1">
-            <template slot="title"><i class="el-icon-message"></i>CSS</template>
+            <template slot="title"><i class="el-icon-message"></i>Test</template>
             <el-menu-item-group>
               <el-menu-item index="/app/cssAnimal">{{ $t('menu.cssAnimation') }}</el-menu-item>
-              <el-menu-item index="/app/about">unknow</el-menu-item>
+              <el-menu-item index="/app/canvas">canvas</el-menu-item>
+              <el-menu-item index="/app/videoTv">video测试</el-menu-item>
+              <el-menu-item index="/app/import">导入测试</el-menu-item>
+              <el-menu-item index="/app/password">密码框</el-menu-item>
+              <el-menu-item index="/app/tabtest">tab动画测试</el-menu-item>
+              <el-menu-item index="/app/map">高德地图测试</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
         </el-menu>
